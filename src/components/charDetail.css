@@ -1,0 +1,26 @@
+.character {
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    
+  
+}
+.specie-detail {
+    background: none;   
+    color: rgb(255, 255, 255);
+    text-align: center;
+    margin: 15px;
+    padding: 7%;
+   max-height: 150px    ;
+   
+}
+.figure-img {
+    height: auto;
+    width: auto;
+   
+}
+.figure-img img {
+    border-radius: 20px;
+    height: 100%;
+    width: 100%;
+}
