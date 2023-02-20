@@ -1,10 +1,9 @@
-import { useCallback, useEffect, useState , useRef} from "react";
-import { FilterChar } from "../services/filterChar";
+import { useState } from "react";
+import { FilterChar } from "../services/filterChars";
 
 export function useCharsfilters() {
     const [filters , setFilters] = useState([]) ;
     const getFilters = async (name , statusChar) => {
-        console.log(name)
         try {
             const NewFilters = await FilterChar(name , statusChar)
             setFilters(NewFilters.results)

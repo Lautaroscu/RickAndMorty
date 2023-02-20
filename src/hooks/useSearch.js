@@ -1,26 +1,27 @@
 import { useState, useEffect , useRef } from "react"
  export function useSearch () {
-    const [search, updateSearch] = useState('')
+    const [search, updateSearch] = useState({
+      nombre : '' ,
+      estado : ''
+    })
     const [error, setError] = useState(null)
-    const isFirstInput = useRef(true)
+
+    const {nombre , estado} = search;
   
     useEffect(() => {
-      if (isFirstInput.current) {
-        isFirstInput.current = search === ''
-        return
-      }
+
   
-      if (search === '') {
+      if ((nombre && estado) === '') {
         setError('No se puede buscar una película vacía')
         return
       }
   
-      if (search.match(/^\d+$/)) {
+      if (nombre.match(/^\d+$/) && estado.match(/^\d+$/)) {
         setError('No se puede buscar una película con un número')
         return
       }
   
-      if (search.length < 3) {
+      if (nombre.length < 3 && estado.length < 3) {
         setError('La búsqueda debe tener al menos 3 caracteres')
         return
       }

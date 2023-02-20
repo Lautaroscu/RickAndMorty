@@ -2,7 +2,7 @@ import { LocationIcon } from "./IconLocation";
 import { Link } from "react-router-dom";
 export function CharactersFilters({filters}) {
     return (  <div className="container">
-    {filters.map(character => (
+    { filters.length ?  filters.map(character => (
 
       <div className="specie" key={character.name}>
         <div className="specie-data">
@@ -17,6 +17,6 @@ export function CharactersFilters({filters}) {
                   </div>
       </div>
 
-    ))}
+    )) : <div className="notFoundChars">No se encontraron resultados :( </div>}
   </div> )
 }

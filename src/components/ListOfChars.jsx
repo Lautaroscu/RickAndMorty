@@ -5,7 +5,9 @@ import { Title } from "./Title";
  import { useCharsfilters } from "../hooks/useCharFilters";
 import { useState } from "react";
 import { CharactersFilters } from "./ListOfCharsFilters";
-export function Characters({ characters}) {
+import { Pagination } from "./pagination";
+
+export function Characters({ characters  , handlePage , CharKey , info}) {
   const [isFilter , setIsFilter] = useState(false) ;
   const {filters , getFilters} = useCharsfilters()
   const SearchByName = useId() ;
@@ -53,11 +55,12 @@ function handleSubmit(e) {
               <p> {<LocationIcon/>} {character.location.name}</p>
 
                       </div>
+                        
           </div>
-
+    
         ))}
       </div> : <CharactersFilters filters={filters} />  }
-     
+          <Pagination handlePage={handlePage} CharKey={CharKey} info={info} /> 
     </>
 
   )
