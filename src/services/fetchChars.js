@@ -1,11 +1,8 @@
-export  async function fetchCharacters(currentPage) {
+export async function fetchCharacters(currentPage) {
     try {
-        const response = await fetch(`https://rickandmortyapi.com/api/character/?page=${currentPage}`);
+        const response = await fetch(`https://rickandmortyapi.com/api/character/?page=${currentPage}`)
         if (response.ok) {
-            const data = await response.json()
-            const characters = data
-            return characters
-
+            return await response.json()
         }
     } catch (error) {
         throw new Error('No results founds')

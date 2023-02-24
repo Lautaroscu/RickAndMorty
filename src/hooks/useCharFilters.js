@@ -8,7 +8,7 @@ export function useCharsfilters() {
             const NewFilters = await FilterChar(name , statusChar)
             setFilters(NewFilters.results)
         } catch (error) {
-        throw new Error('Can not find characters')
+        throw new Error('404 Not Found')
         }
     }
     return {filters , getFilters}
