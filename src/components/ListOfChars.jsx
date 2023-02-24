@@ -1,4 +1,3 @@
-import { useId } from "react";
 import { Link } from "react-router-dom";
 import { LocationIcon } from "./IconLocation";
 import { Title } from "./Title";
@@ -6,42 +5,17 @@ import { Title } from "./Title";
 import { useState } from "react";
 import { CharactersFilters } from "./ListOfCharsFilters";
 import { Pagination } from "./pagination";
+import { SearchForm } from "./searchForm";
 
-export function Characters({ characters  , handlePage , CharKey , info}) {
-  const [isFilter , setIsFilter] = useState(false) ;
-  const {filters , getFilters} = useCharsfilters()
-  const SearchByName = useId() ;
-const SearchByStatus = useId();
-
-function handleSubmit(e) {
-  e.preventDefault()
-  setIsFilter(true)
- const {name , statusChar} = Object.fromEntries(new FormData(e.target));
- getFilters(name , statusChar)
-
-
-}
+export function Characters({ characters  , prevPage , nextPage, currentPage , CharKey , info   }) {
+const {filters , getFilters} = useCharsfilters()
+    const [isFilter, setIsFilter] = useState(false)
 
   return (
     <>
      <Title />
-     <form className="form" onSubmit={handleSubmit}>
-      <div className="inputs">
-      <div className="input-name">
-          <label htmlFor={SearchByName}>Search By Name</label>
-        <input placeholder="Rick , Morty ...."  type="text" name="name" id={SearchByName} />
-      </div>
-    
-<div className="inputStatus">
-  <label htmlFor={SearchByStatus}>Search By Status</label>
-        <input type="text" placeholder="Alive , Dead..." name="statusChar" id={SearchByStatus}/>
-</div>
-<button  type="submit">Send</button>
-        </div>
-      
-        
-     </form>
-     {!isFilter ?  <div className="container">
+    <SearchForm getFilters={getFilters} setIsFilter={setIsFilter} />
+     {!isFilter ? <div className="container">
         {characters.map(character => (
 
           <div className="specie" key={character.name}>
@@ -59,8 +33,8 @@ function handleSubmit(e) {
           </div>
     
         ))}
-      </div> : <CharactersFilters filters={filters} />  }
-          <Pagination handlePage={handlePage} CharKey={CharKey} info={info} /> 
+      </div> : <CharactersFilters filters={filters} /> }
+          <Pagination characters={characters} prevPage={prevPage} nextPage={nextPage} currentPage={currentPage} CharKey={CharKey} info={info} /> 
     </>
 
   )
