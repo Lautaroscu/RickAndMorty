@@ -1,6 +1,6 @@
-export async function fetchCharById (id) {
+export async function fetchEpisodeById (id) {
   try {
-    const response = await fetch(`https://rickandmortyapi.com/api/character/${id}`)
+    const response = await fetch(`https://rickandmortyapi.com/api/episode/${id}`)
     if (response.ok) {
       return await response.json()
     }

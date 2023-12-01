@@ -1,0 +1,11 @@
+.episode {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    padding: 9%;
+}
+.episode-data {
+    font-size: 2rem;
+}

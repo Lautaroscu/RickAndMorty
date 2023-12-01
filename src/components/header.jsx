@@ -1,8 +1,8 @@
 
-export function Header ({children}) {
-    return (
-        <header>
-           {children}
-        </header>
-    )
+export function Header ({ children }) {
+  return (
+    <header>
+      {children}
+    </header>
+  )
 }

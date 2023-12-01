@@ -1,6 +1,13 @@
-import { Link } from "react-router-dom"
-export function Nav() {
+import { Link } from 'react-router-dom'
+export function Nav () {
+  return (
+
     <nav>
-        <li><Link  /></li>
+      <ul>
+        <li>
+          <Link to='RickAndMorty/episodes'>Episodes</Link>
+        </li>
+      </ul>
     </nav>
+  )
 }

@@ -8,6 +8,7 @@
 .specie-detail {
     background: none;   
     color: rgb(255, 255, 255);
+    align-items: center;
     text-align: center;
     margin: 15px;
     padding: 7%;
